@@ -4,18 +4,19 @@ go-recaptcha
 About
 -----
 
-This package handles reCaptcha (http://www.google.com/recaptcha) form submissions in Go (http://golang.org/).
+This package handles reCaptcha (http://www.google.com/recaptcha) form submissions in Go (http://golang.org/) on Google AppEngine.
+If you are not using Google AppEngine please refer to the original app (https://github.com/dpapathanasiou/go-recaptcha)
 
 Usage
 -----
 
-Install the package in your environment:
+Download the package in your environment:
 
 ```
-go get github.com/dpapathanasiou/go-recaptcha
+git clone github.com/ajite/go-recaptcha
 ```
 
-To use it within your own code, import "github.com/dpapathanasiou/go-recaptcha" and call:
+To use it within your own code, import "github.com/ajite/go-recaptcha" and "appengine/urlfetch" call:
 
 ```
 recaptcha.Init (recaptcha_private_key)
@@ -24,29 +25,17 @@ recaptcha.Init (recaptcha_private_key)
 once, to set the reCaptcha private key for your domain, then:
 
 ```
-recaptcha.Confirm (client_ip_address, recaptcha_challenge_field, recaptcha_response_field)
+recaptcha.Confirm (http_client,client_ip_address, recaptcha_challenge_field, recaptcha_response_field)
+```
+
+The http client can be obtain through the following code
+
+```
+c := appengine.NewContext(r)
+client := urlfetch.Client(c)
 ```
 
 for each reCaptcha form input you need to check, using the values obtained by reading the form's POST parameters.
 
 The recaptcha.Confirm() function returns either true (i.e., the captcha was completed correctly) or false.
-
-Usage Example
--------------
-
-Included with this repo is example.go, a simple HTTP server which creates the reCaptcha form and tests the input.
-
-Build the example after installing the recaptcha package:
-
-```
-go build example.go
-```
-
-Run the server by invoking the executable:
-
-```
-./example <reCaptcha public key> <reCaptcha private key>
-```
-
-You can access the page from http://localhost:9001/ in your browser.
 
