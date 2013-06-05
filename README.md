@@ -1,4 +1,4 @@
-go-recaptcha
+appengine-go-recaptcha
 ============
 
 About
@@ -13,10 +13,10 @@ Usage
 Download the package in your environment:
 
 ```
-git clone github.com/ajite/go-recaptcha
+git clone github.com/ajite/appengine-go-recaptcha
 ```
 
-To use it within your own code, import "github.com/ajite/go-recaptcha" and "appengine/urlfetch" call:
+To use it within your own code, import "github.com/ajite/appengine-go-recaptcha" and "appengine/urlfetch" call:
 
 ```
 recaptcha.Init (recaptcha_private_key)
