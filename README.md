@@ -28,7 +28,7 @@ once, to set the reCaptcha private key for your domain, then:
 recaptcha.Confirm (http_client,client_ip_address, recaptcha_challenge_field, recaptcha_response_field)
 ```
 
-The http client can be obtain through the following code
+You can get the http client with the following code
 
 ```
 c := appengine.NewContext(r)
