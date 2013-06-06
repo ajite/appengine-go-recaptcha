@@ -39,3 +39,11 @@ for each reCaptcha form input you need to check, using the values obtained by re
 
 The recaptcha.Confirm() function returns either true (i.e., the captcha was completed correctly) or false.
 
+```
+result := false
+challenge, challenge_found := r.Form["recaptcha_challenge_field"]
+recaptcha_resp, resp_found := r.Form["recaptcha_response_field"]
+if challenge_found && resp_found {
+  result = recaptcha.Confirm(client,r.RemoteAddr, challenge[0], recaptcha_resp[0])
+}
+```
