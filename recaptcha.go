@@ -1,6 +1,6 @@
-// Package recaptcha handles reCaptcha (http://www.google.com/recaptcha) form submissions
+// Package recaptcha handles reCaptcha (http://www.google.com/recaptcha) form submissions for Google AppEngine
 //
-// This package is designed to be called from within an HTTP server or web framework
+// This package is designed to be called from within an appengine Golang application
 // which offers reCaptcha form inputs and requires them to be evaluated for correctness
 //
 // Edit the recaptcha_private_key constant before building and using
